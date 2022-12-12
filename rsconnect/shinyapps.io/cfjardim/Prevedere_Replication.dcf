@@ -1,0 +1,13 @@
+name: Prevedere_Replication
+title: Prevedere_Replication
+username:
+account: cfjardim
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7538814
+bundleId: 6588967
+url: https://cfjardim.shinyapps.io/Prevedere_Replication/
+when: 1670154693.10749
+lastSyncTime: 1670154693.1075
+asMultiple: FALSE
+asStatic: FALSE

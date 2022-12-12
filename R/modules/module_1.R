@@ -1,0 +1,244 @@
+tela_1_UI <- function(id) {
+  ns <- NS(id)
+  tagList(
+
+    div(id = "row_1",
+        h4(span("Business & Consumer Sentiment:"),
+           span(" Measures of sentiment among consumers and business",
+                style  = 'font-weight: 100; font-size: 1.25em;')),
+
+        div(id = "dates",
+            dateRangeInput(ns('dateRange'),
+                           label = '',
+                           start = "2011-01-01" ,
+                           end = "2022-01-01"
+            ))
+    ),
+
+    gridPanel(id = "row_2",
+              title = "Login Page 1",
+              # fill_page = FALSE,
+              # auto_fill = FALSE,
+
+              areas = list(
+                default = c("area-1 area-2",
+                            "area-3 area-4",
+                            "comment comment",
+                            "area-5 area-5"
+                ),
+                xs = c("area-1",
+                       "area-2",
+                       "area-3",
+                       "area-4",
+                       "area-5"
+
+                )
+              ),
+
+              # rows = list(default = "350px 350px auto 150px",
+              #             xs = "100px 100px 50px 100px"),
+
+              columns = list(default = "1fr 1fr",
+                          xs = "100px 100px"),
+
+
+              gap = list(default = "2em",
+                         md = "10px",
+                         xs = "15px"),
+
+
+              div(class = "area-1",
+                  style = 'border-bottom:1.25px solid lightgray;padding: 0.5em;',
+                  tabsetPanel(tabPanel(
+                    title = p("Consumer Sentiment", br(), "4-6 month lead-time",
+                              style = 'font-family: Lato;font-weight: 600;color: black;'),
+
+                    highchartOutput(ns('top_left'),  height = 200)
+                  ))),
+
+              div(class = "area-2",
+                  style = 'border-bottom:1.25px solid lightgray;padding: 0.5em;',
+                    tabsetPanel(tabPanel(title = p("Economic Policy Uncertainty Index",br(),"6-9 month lead-time",
+                                                   style = 'font-family: Lato;font-weight: 600;color: black;'),
+                                       highchartOutput(ns('top_right'),  height = 200)
+                                       ))),
+
+              div(class = "area-3",
+                  style = 'border-bottom:0px solid lightgray;padding: 0.5em;',
+                  tabsetPanel(tabPanel(title = p("OECD Business Confidence Indicator",br()," 4-6 month lead-time",
+                                                 style = 'font-family: Lato;font-weight: 600;color: black;'),
+                                       highchartOutput(ns('bottom_left'),  height = 200)
+                                       ))),
+
+              div(class = "area-4",
+                  style = 'border-bottom:0px solid lightgray;padding: 0.5em;',
+                  tabsetPanel(tabPanel(title = p("Small Business Optimism Index",br(),"3-5 month lead-time",
+                                                 style = 'font-family: Lato;font-weight: 600;color: black;'),
+                                       highchartOutput(ns('bottom_right'),  height = 200)
+                                       )))),
+    hr(style = 'border: 2px double lightgray;
+       width: 100%;height: .5px;
+       display:inline-block;
+       margin:0px; padding:0px'),
+    div(style = 'display: flex;
+        background: whitesmoke; align-items: center; ',
+      div(
+        class = 'comment',
+        style = "margin: 0 1em;position: relative;
+    ",
+        p("How have these indicators changed up or down in the past 5 months."),
+
+        div(
+          class = "area-5",
+          style = 'border-top:1.5px solid lightgray; background: ;
+                  display: flex; gap: 1em;
+                  margin-bottom:1em;',
+
+
+          div(
+            class = 'monthly_report',
+
+            tags$ul(
+              class = 'list',
+              style = " list-style: none;",
+              h1(
+                "MONTHLY TRENDS",
+                style  = 'color : gray; font-size: 1.25;
+
+                                   font-weight:500;
+                                   width: fit-content;padding: .25em;'
+              ),
+
+              tags$li(
+                class = 'list_1',
+                p(
+                  "How have these indicators changed up or down in the past 5 months.",
+                  style = "color: gray; font-size: .85em;"
+                )
+              ),
+              tags$li(class = 'list_2'),
+              tags$li(class = 'list_3')
+            )
+          )
+        )
+      ) ,
+
+      div(
+        class = 'area-5',
+         div(class = 'gt_table',
+
+            gt::gt_output(ns('summary_table')))
+      )
+    )
+  )
+
+
+}
+
+
+tela_1_Server <- function(id) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+
+
+
+
+
+      output$top_left <- renderHighchart({
+
+        chart(data = df1 %>% filter(month >= input$dateRange[1] & month <= input$dateRange[2]),color = 'darkgreen')%>%
+          hc_caption(text = "<em>Measures confidence amongst consumers and is a leading indicator of consumer spending.</em>",
+                     style = list(color = 'black'))
+
+      })
+
+      output$top_right <- renderHighchart({
+
+        chart(data = df2 %>% filter(month >= input$dateRange[1] & month <= input$dateRange[2]),color = 'red')%>%
+          hc_caption(text = "<em>Daily news based composite. Can signal supply chain disruption and upcoming slack or tightening demand.</em>",
+                     style = list(color = 'black'))
+
+      })
+
+      output$bottom_left <- renderHighchart({
+
+        chart(data = df3 %>% filter(month >= input$dateRange[1] & month <= input$dateRange[2]),color = '#0177FF')%>%
+          hc_caption(text = "<em>Measures confidence amongst business leaders and is a leading indicator of business investments</em>",
+                     style = list(color = 'black'))
+
+      })
+
+      output$bottom_right <- renderHighchart({
+        chart(data = df4 %>% filter(month >= input$dateRange[1] & month <= input$dateRange[2]),color = '#303030')%>%
+          hc_caption(text = "<em>Indicator of sentiment among small business who can be quicker to react to economic conditions than big firms.</em>",
+                     style = list(color = 'black'))
+
+      })
+
+      output$summary_table <- render_gt({
+        gt(table_df) %>%
+          cols_label(indicators = "Indicators",
+                     Relationship = "Relationship",
+                     jan_20 = "Jan/20",
+                     jul_22 = "Jul/22",
+                     aug_22 = "Aug/22",
+                     sep_22	 = "Sep/22",
+                     out_22	 = "Out/22"
+
+          )%>%
+          tab_style(
+            locations = cells_column_labels(columns = everything()),
+            style     = list(
+              #Give a thick border below
+              cell_borders(sides = "bottom", weight = px(3)),
+              cell_fill(color = 'lightgray'),
+              #Make text bold
+              cell_text(weight = "700",size = '12px')
+            )
+          ) %>%
+          tab_style(
+            locations = cells_body(),
+            style     = list(
+              #Give a thick border below
+
+              cell_fill(color = 'whitesmoke'),
+              #Make text bold
+              cell_text(weight = "700",size = '12px')
+            )
+          ) %>%
+
+          data_color(columns = c(indicators),
+                     colors = 'lightgray') %>%
+          tab_options(
+            #Remove border between column headers and title
+            column_labels.border.top.width = px(3),
+            column_labels.border.top.color = "transparent",
+            #Remove border around table
+            table.border.top.color = "transparent",
+            table.border.bottom.color = "transparent",
+            #Reduce the height of rows
+            data_row.padding = px(3),
+            #Adjust font sizes and alignment
+            source_notes.font.size = 12,
+            heading.align = "left",table.width = 850
+
+          ) %>% tab_options(data_row.padding = px(1)) %>%
+
+
+
+          text_transform(
+            locations = cells_body(columns = jan_20:last_col()),
+            fn = function(x) {
+              local_image(
+                filename = c('www/img/down.png','www/img/up.svg'),
+                height = 10
+              )
+            }
+          )
+
+      })
+
+    }
+  )
+}
