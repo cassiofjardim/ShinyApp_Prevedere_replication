@@ -10,7 +10,7 @@ library(gt)
 
 source(file = 'R/modules/module_1.R')
 
-source('R/utils/web_scrapping_marquee.R')
+source('R/utils/marquee.R')
 source('R/utils/charts.R')
 
 ui <- fluidPage(title = "Prevedere Replication",
@@ -19,7 +19,7 @@ ui <- fluidPage(title = "Prevedere Replication",
 
         div(class = "marquee-container",
                  div(class = "marquee",
-                     style = "display: flex; align-items: center;",
+
                      lista_marquee,lista_marquee)
                  ),
 
@@ -30,9 +30,7 @@ ui <- fluidPage(title = "Prevedere Replication",
                          style  = 'font-weight: 100; font-size: .95em;')),
                  span(
                    "Company Logo",
-                   class = 'company_logo',
-                   style = 'color: whitesmoke;display: inline-block;display: block;font-size: 1.5em;
-    position: absolute; top: 0; right: 0; top: 7%; padding-right: 2em;'
+                   class = 'company_logo'
                  )),
 
         tela_1_UI("tela_1")

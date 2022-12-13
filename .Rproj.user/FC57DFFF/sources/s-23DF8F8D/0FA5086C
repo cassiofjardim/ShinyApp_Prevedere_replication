@@ -3,7 +3,7 @@
     "path": "C:/Users/Cassio_1/OneDrive/Github_Projects/ShinyApp_Prevedere_replication/app.R",
     "project_path": "app.R",
     "type": "r_source",
-    "hash": "1241417145",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1670874211758.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "15,48",
+        "cursorPosition": "12,25",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1670851871,
+    "lastKnownWriteTime": 1670937252,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1670851871,
+    "last_content_update": 1670937252706,
     "read_only": false,
     "read_only_alternatives": []
 }
