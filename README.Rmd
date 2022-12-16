@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Prevedere Dashboard - Shiny APP
 
--   []()
+-   
 
 A [Prevedere](https://prevedere.com/) em sua newsletter divulga o design/layout do seu Macroeconomic Dashboard. Com cores muito bem definidas eles fazem um ótimo trabalho.
 

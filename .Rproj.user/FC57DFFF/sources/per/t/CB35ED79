@@ -3,7 +3,7 @@
     "path": "C:/Users/Cassio_1/OneDrive/Github_Projects/ShinyApp_Prevedere_replication/README.Rmd",
     "project_path": "README.Rmd",
     "type": "r_markdown",
-    "hash": "2736610927",
+    "hash": "1869506358",
     "contents": "",
     "dirty": false,
     "created": 1670940325418.0,
@@ -15,19 +15,19 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "10,0",
+        "cursorPosition": "19,0",
         "scrollLine": "0",
         "docOutlineVisible": "0",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "316:110.90908813476562",
-        "last_setup_crc32": "23DF8F8Dc4e2d899"
+        "rmdVisualModeLocation": "529:204.5454559326172",
+        "last_setup_crc32": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1670940649,
+    "lastKnownWriteTime": 1671195945,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1670940649969,
+    "last_content_update": 1671195945002,
     "read_only": false,
     "read_only_alternatives": []
 }
