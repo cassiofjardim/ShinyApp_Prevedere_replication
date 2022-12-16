@@ -1,11 +1,4 @@
-<style>
- 
-#contact{
-    display: flex;
-    justify-content: center;
-    gap: 3em;
-}
-</style>
+
 
 <h1 align="center" id="title">Hello 👋, My name is Cassio Felix</h1>
 
