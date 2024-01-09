@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+
+html{
+  width: 100vw;
+}
+
+body{
+
+}
+
+
+*,
+*::after,
+*::before{
+      box-sizing:border-box;
+      font-family: 'Roboto Condensed', sans-serif;
+      border-radius: 0px !important;
+
+  }
+
+.container-fluid{
+  padding: 0 !important;
+}
+
+/************************************************/
+/**************MARQUEE AREA and HEADER AREA******/
+/************************************************/
+.marquee-container{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background: #0f1923;
+    overflow: hidden;
+    padding: 0.5em 2em;
+    width: 100vw;
+
+
+}
+
+.marquee-container .marquee {
+    display: flex;
+    align-items: center;
+    font-size: .75em;
+
+    font-family: sans-serif;
+    padding: 0.25em 0;
+    color: #fff;
+
+    white-space: nowrap;
+    animation: marquee 41.5s infinite linear;
+    font-weight: 500;
+    margin: 0px;
+
+}
+/* notice the infinite */
+.marquee-container .marquee:after{
+
+}
+
+
+@keyframes marquee{
+    0% {
+        transform: translateX(0)
+    }
+    100% {
+        transform: translateX(-40%)
+    }
+}
+/****************************HEADER AREA*******************************/
+
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #23292C;
+    padding: 0.5em;
+    width: 100vw;
+}
+
+
+#title h5{
+    font-weight: 400;
+    color: white;
+}
+
+#title img.company_logo{
+    margin: 0 1em 0 0 ;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+/******************************************************************/
+/***************** Blue - ROW (Module File)************************/
+/******************************************************************/
+
+.row{
+  width: 100vw;
+  margin: 0;
+}
+
+.row .col-sm-12#row_1{
+
+    display: flex;
+    background: #236192;
+    font-weight: 500;
+    padding: 0.5em ;
+    position: relative;
+    width: 100vw;
+
+}
+
+.row .col-sm-12#row_1 h5{
+    font-weight: 600;
+    color: white;
+
+}
+
+div#dates {
+    position: absolute;
+    right: 3.5em;
+}
+
+label#tela_1-dateRange-label{
+  display: none;
+}
+
+/******************************************************************/
+
+#grid_chart_panel{
+
+  background: whitesmoke !important;
+
+  padding-top: 0rem  !important;
+  height: fit-content;
+
+
+}
+#grid_chart_panel .charts{
+  border-bottom:1.25px solid lightgray;
+  padding: 0.5em;
+}
+
+#grid_chart_panel .charts p{
+  font-family: Lato;
+  font-weight: 600;
+  color: black;
+}
+
+#grid_chart_panel .charts p.source{
+  margin: 0px;
+  font-size: .8em;
+  color: gray;
+  font-weight: 700;
+}
+
+#grid_chart_panel .nav-tabs {
+    border: none;
+}
+
+#grid_chart_panel .nav-tabs li a{
+  background: whitesmoke !important;
+   border: none;
+   font-weight: 800;
+}
+#grid_chart_panel .nav-tabs {
+
+}
+
+hr.hr_chart{
+   border: 2px double lightgray;
+   height: 0.5px;
+   margin: 0.25em 0 0 0;
+
+}
+
+/******************************************************************/
+/*Area destinada aos comentarios e tabela*/
+.comment{
+  display: flex;
+  background: whitesmoke;
+  align-items: center;
+  gap: 3em;
+}
+
+.comment .left_comment{
+  position: relative;
+  padding: 2em;
+}
+
+.comment .left_comment ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.comment .left_comment ul h4{
+    width: 100%;
+    border-bottom: 3px double;
+    color: gray;
+    font-weight: 500;
+    padding: 0.25em;
+}
+
+.comment  .table{
+  width: auto;
+}
+
+.comment .icons_up_down {
+    width: fit-content;
+    width: 250px;
+
+}
+
+.comment .icons_up_down .up_down li {
+    padding: 0.25em;
+    font-size: .85em;
+    color: gray;
+    font-weight: 500;
+}
+
+.comment .icons_up_down .up_down li img{
+  margin-right:.25em;
+  height: 16px;
+}
+
+
